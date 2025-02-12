@@ -1,5 +1,5 @@
 region = "us-east-1"  # Changed to a different AWS region
-app_name = "Wordpress-application"
+app_name = "wordpress"
 env_name = "dev"
 
 # VPC configuration
