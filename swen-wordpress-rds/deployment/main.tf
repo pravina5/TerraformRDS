@@ -7,6 +7,15 @@ module "vpc" {
   vpc_cidr = var.vpc_cidr
   additional_tags = var.additional_tags
 }
+terraform {
+  backend "s3" {
+    bucket         = "swengitactionsrds "
+    key            = "terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    dynamodb_table = "rds-terraform-lock-table" # Optional for state locking
+  }
+}
 
 module "subnet_pair" {
   source = "../vpc_subnet"
