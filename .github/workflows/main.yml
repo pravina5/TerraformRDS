@@ -35,15 +35,15 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: ./deployment  # ✅ Correctly sets the directory
+        working-directory: swen-wordpress-rds/deployment  # ✅ Corrected path
 
       - name: Terraform Plan
         run: terraform plan -var-file="terraform.tfvars" -var-file="secrets.tfvars"
-        working-directory: ./deployment  # ✅ Correctly sets the directory
+        working-directory: swen-wordpress-rds/deployment  # ✅ Corrected path
 
       - name: Terraform Apply
         run: terraform apply -auto-approve -var-file="terraform.tfvars" -var-file="secrets.tfvars"
-        working-directory: ./deployment  # ✅ Correctly sets the directory
+        working-directory: swen-wordpress-rds/deployment  # ✅ Corrected path
 
   terraform_destroy:
     name: "Terraform Destroy"
@@ -69,12 +69,12 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: ./deployment  # ✅ Correctly sets the directory
+        working-directory: swen-wordpress-rds/deployment  # ✅ Corrected path
 
       - name: Terraform Plan
         run: terraform plan -var-file="terraform.tfvars" -var-file="secrets.tfvars"
-        working-directory: ./deployment  # ✅ Correctly sets the directory
+        working-directory: swen-wordpress-rds/deployment  # ✅ Corrected path
 
       - name: Terraform Destroy
         run: terraform destroy -auto-approve -var-file="terraform.tfvars" -var-file="secrets.tfvars"
-        working-directory: ./deployment  # ✅ Correctly sets the directory
+        working-directory: swen-wordpress-rds/deployment  # ✅ Corrected path
