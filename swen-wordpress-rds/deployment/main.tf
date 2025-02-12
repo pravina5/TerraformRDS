@@ -9,7 +9,7 @@ module "vpc" {
 }
 terraform {
   backend "s3" {
-    bucket         = "swengitactionsrds "
+    bucket         = "swengitactionsrds"
     key            = "terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
