@@ -37,10 +37,10 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan
-        run: terraform plan -var-file="terraform.tfvars" -var-file="secrets.tfvars"
+        run: terraform plan -var-file="deployment/terraform.tfvars" -var-file="deployment/secrets.tfvars"
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve -var-file="terraform.tfvars" -var-file="secrets.tfvars"
+        run: terraform apply -auto-approve -var-file="deployment/terraform.tfvars" -var-file="deployment/secrets.tfvars"
 
   terraform_destroy:
     name: "Terraform Destroy"
@@ -68,7 +68,7 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan
-        run: terraform plan -var-file="terraform.tfvars" -var-file="secrets.tfvars"
+        run: terraform plan -var-file="deployment/terraform.tfvars" -var-file="deployment/secrets.tfvars"
 
       - name: Terraform Destroy
-        run: terraform destroy -auto-approve -var-file="terraform.tfvars" -var-file="secrets.tfvars"
+        run: terraform destroy -auto-approve -var-file="deployment/terraform.tfvars" -var-file="deployment/secrets.tfvars"
