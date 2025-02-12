@@ -33,20 +33,17 @@ jobs:
           terraform_version: 1.1.9
           terraform_wrapper: false
 
-      - name: Change to Deployment Directory
-        run: cd deployment
-
       - name: Terraform Init
         run: terraform init
-        working-directory: deployment  # ✅ Ensures Terraform runs in deployment/
+        working-directory: ./deployment  # ✅ Correctly sets the directory
 
       - name: Terraform Plan
         run: terraform plan -var-file="terraform.tfvars" -var-file="secrets.tfvars"
-        working-directory: deployment  # ✅ Ensures Terraform runs in deployment/
+        working-directory: ./deployment  # ✅ Correctly sets the directory
 
       - name: Terraform Apply
         run: terraform apply -auto-approve -var-file="terraform.tfvars" -var-file="secrets.tfvars"
-        working-directory: deployment  # ✅ Ensures Terraform runs in deployment/
+        working-directory: ./deployment  # ✅ Correctly sets the directory
 
   terraform_destroy:
     name: "Terraform Destroy"
@@ -70,17 +67,14 @@ jobs:
           terraform_version: 1.1.9
           terraform_wrapper: false
 
-      - name: Change to Deployment Directory
-        run: cd deployment
-
       - name: Terraform Init
         run: terraform init
-        working-directory: deployment  # ✅ Ensures Terraform runs in deployment/
+        working-directory: ./deployment  # ✅ Correctly sets the directory
 
       - name: Terraform Plan
         run: terraform plan -var-file="terraform.tfvars" -var-file="secrets.tfvars"
-        working-directory: deployment  # ✅ Ensures Terraform runs in deployment/
+        working-directory: ./deployment  # ✅ Correctly sets the directory
 
       - name: Terraform Destroy
         run: terraform destroy -auto-approve -var-file="terraform.tfvars" -var-file="secrets.tfvars"
-        working-directory: deployment  # ✅ Ensures Terraform runs in deployment/
+        working-directory: ./deployment  # ✅ Correctly sets the directory
